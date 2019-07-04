@@ -1,0 +1,60 @@
+<h1 class="dialog-head"><b>Create Student</b>
+  <span matTooltip="Close" matTooltipPosition="right" (click)="close()"><i class="material-icons"
+      style="color:red">close</i></span>
+</h1>
+<mat-card>
+  <form [formGroup]="addForm" (ngSubmit)="add()">
+    <div>
+      <mat-form-field style="
+      margin-right: 17px;">
+        <input matInput placeholder="Student Name" class="form-control" formControlName="name" type="text" minlength="3"
+          maxlength="20" required>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 3 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name cannot be Bob.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" class="form-control" formControlName="email" type="email"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+          <div *ngIf="email.errors.required">
+            email is required.
+          </div>
+          <div *ngIf="email.errors.minlength">
+            email must be at least 3 characters long.
+          </div>
+          <div *ngIf="email.errors.forbiddenName">
+            email cannot be Bob.
+          </div>
+        </div>
+      </mat-form-field>
+      <br>
+      <mat-form-field style="margin-right: 17px;">
+        <input matInput [matDatepicker]="picker" [max]="maxDate" placeholder="Date of Birth" class="form-control"
+          formControlName="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Class" maxlength="2" class="form-control" type="number" [min]="1"
+          formControlName="class" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <button [disabled]="!addForm.valid" mat-raised-button color="primary"
+        style="float:right; margin-right: 10px;">Add</button>
+      <button (click)="close()" mat-raised-button color="warn" style="float:right;">Cancel</button>
+    </div>
+  </form>
+</mat-card>

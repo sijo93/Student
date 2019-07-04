@@ -1,0 +1,9 @@
+  .center {
+    margin: auto;
+    width: 40%;
+    padding: 25px;
+  }
+  .mat-card {
+    background: #cfcfcf;
+    color: rgb(0, 16, 24);
+  }
