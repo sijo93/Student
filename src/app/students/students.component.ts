@@ -58,9 +58,6 @@ export class StudentsComponent implements OnInit {
     }
 
 
-    // const dialogone = this.dialog.open(LoginComponent, { disableClose: true });
-    // dialogone.afterClosed().subscribe(result => {
-    // });
   }
 
   logout() {
