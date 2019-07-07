@@ -42,16 +42,9 @@ export class LoginComponent implements OnInit {
         duration: 5000
       });
       this.router.navigateByUrl('/students');
-      // const dialogone = this.dialog.open(AddStudentComponent, { disableClose: true });
-      // dialogone.afterClosed().subscribe(result => {
-      // });
-
       this.token = Math.random() * 100000;
       console.log(this.token);
       localStorage.setItem('focaloid', `${this.token}`);
-
-
-
     } else {
       this.snackBar.open('Check your email or password!', 'OKAY', {
         duration: 5000
